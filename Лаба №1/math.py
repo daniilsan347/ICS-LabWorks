@@ -1,4 +1,4 @@
-#mama-ya-mathematik
+# mama-ya-mathematik-24
 import math
 
 print("Функція z(x)\n")
