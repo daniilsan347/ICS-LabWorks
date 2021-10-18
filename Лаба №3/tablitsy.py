@@ -1,15 +1,17 @@
 # tablitsy
 
 import csv
+import sys
 
 # Розрахунок середньої ціни за 4 місяці
 def countAvg(arr):
-  for i in range(1, 4) : avgPrice =+ float(arr[i])
+  avgPrice = 0
+  for i in range(1, 4) : avgPrice += float(arr[i])
   return round(avgPrice/4, 2)
 
 # Створення списку з даними про ринкові ціни
 prices = []
-with open("table1.csv", "r") as table1: 
+with open(sys.path[0] + "/table1.csv", "r") as table1: 
   pricesTable = csv.reader(table1)
   for row in pricesTable:
     try:
@@ -20,7 +22,7 @@ with open("table1.csv", "r") as table1:
 
 # Створення списку з даними про базові ціни
 goods = {}
-with open("table2.csv", "r") as table2:
+with open(sys.path[0] + "/table2.csv", "r") as table2:
   goodsTable = csv.reader(table2)
   for row in goodsTable:
     try:
@@ -45,4 +47,6 @@ for row in prices:
   resultTable[index].append(goods[row['id']]['price']) 
   resultTable[index].append(round(row['avg']/goods[row['id']]['price'], 2)) 
   index += 1
-print(resultTable)
+
+for row in resultTable:
+  print(row)
