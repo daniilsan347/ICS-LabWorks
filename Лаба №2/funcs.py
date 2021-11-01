@@ -82,10 +82,14 @@ def remove_duplicates(list: List):
   Returns list without duplicates
   """
   sorted_list = quick_sort(list)
+  print(sorted_list)
+  result = []
   for i in range(len(sorted_list)-1):
-    if sorted_list[i] == sorted_list[i+1]:
-      sorted_list.pop(i)
-  return sorted_list
+    # if sorted_list[i] == sorted_list[i+1]:
+    #   sorted_list.pop(i)
+    if sorted_list[i] != sorted_list[i+1]:
+      result.append(sorted_list[i])
+  return result
 
 def pprint_list(list: List):
   print("[ ", end="")
@@ -99,4 +103,4 @@ def gen_randint_list(min, max, count):
 
 def gen_randfloat_list(count):
   """Generates list of random floats"""
-  return [random.random()*100 for i in range(count)]
+  return [round(random.random()*100, 3) for i in range(count)]
