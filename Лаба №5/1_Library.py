@@ -1,4 +1,4 @@
-# Laba No5 -- OOP, Library
+# Laba No5 -- OOP -- Library
 
 import csv
 import sys
